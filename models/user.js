@@ -1,6 +1,6 @@
 const { DataTypes, Model } = require('sequelize')
 
-const { sequelize } = require('../database')
+const sequelize = require('../database')
 
 // const User = sequelize.define(
 //     'User',
@@ -57,7 +57,7 @@ User.init(
     }
 )
 
-const user = User.build({ firstName: 'Anik', lastName: 'Mohammad' })
-console.log(User.classLevelMethod())
-console.log({ name: user.getFullName() })
-console.log(user.instanceLevelMethod())
+// const user = User.build({ firstName: 'Anik', lastName: 'Mohammad' })
+// console.log(User.classLevelMethod())
+// console.log({ name: user.getFullName() })
+// console.log(user.instanceLevelMethod())

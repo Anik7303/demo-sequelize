@@ -3,7 +3,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const express = require('express')
-const { sequelize } = require('./database')
+const sequelize = require('./database')
 
 // models
 require('./models')
