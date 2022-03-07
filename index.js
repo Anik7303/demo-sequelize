@@ -2,6 +2,7 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
+const cors = require("cors");
 const express = require("express");
 const sequelize = require("./database");
 
@@ -12,16 +13,17 @@ require("./models");
 const User = sequelize.model("User");
 
 // config vars
-const PORT = process.env.PORT | 8000;
-const HOST = "192.168.0.100"; // const HOST = process.env.HOST | '192.168.0.100'
+const PORT = process.env.PORT || 8000;
+const HOST = process.env.HOST || "192.168.0.100";
 
 const app = express();
 
+app.use(cors());
 // app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 
 app.use((req, res) => {
-  res.send({ message: "testing successful." });
+  res.status(200).send({ message: "testing successful." }).end();
 });
 
 app.listen(PORT, HOST, async () => {
